@@ -7,159 +7,77 @@
 <title>新規メディア構成案</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Inter:wght@400;700;800;900&display=swap');
-:root{
-  --accent:#2B4C8A; --accentl:#EEF3FF; --sheet:#FFFFFF; --bg2:#F5F7FA;
-  --ink:#1A1A1A; --ink3:#606060; --bord:#E5E5E5;
-  --ground:#E8EBF0; --shadow:rgba(20,32,58,.16);
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --accent:#8FB0E8; --accentl:#1B2438; --sheet:#141821; --bg2:#1A1F2A;
-    --ink:#EDF0F5; --ink3:#9AA3B2; --bord:#2C3444;
-    --ground:#0D1017; --shadow:rgba(0,0,0,.5);
-  }
-}
-:root[data-theme="dark"]{
-  --accent:#8FB0E8; --accentl:#1B2438; --sheet:#141821; --bg2:#1A1F2A;
-  --ink:#EDF0F5; --ink3:#9AA3B2; --bord:#2C3444;
-  --ground:#0D1017; --shadow:rgba(0,0,0,.5);
-}
+:root{--accent:#2B4C8A;--accentl:#EEF3FF;--sheet:#FFFFFF;--bg2:#F5F7FA;--ink:#1A1A1A;--ink3:#606060;--bord:#E5E5E5;--ground:#FFFFFF;--shadow:rgba(20,32,58,.16);}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Sans',Meiryo,sans-serif;
-  color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;}
+body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,'Hiragino Sans',Meiryo,sans-serif;color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;word-break:auto-phrase;line-break:strict;overflow-wrap:break-word;}
 .deck{padding:24px 0;}
 .fit{margin:0 auto 24px;}
-.slide{position:relative;width:1200px;height:900px;background:var(--sheet);
-  padding:48px 56px;box-shadow:0 2px 18px var(--shadow);overflow:hidden;transform-origin:top left;}
-
-.head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:4px solid var(--accent);padding-bottom:12px;margin-bottom:22px;}
-.label{font-size:18px;font-weight:700;color:var(--accent);letter-spacing:.25em;}
-h2{font-size:38px;font-weight:900;line-height:1.25;margin-top:4px;}
-.legend{display:flex;gap:10px;font-size:14px;color:var(--ink3);white-space:nowrap;padding-bottom:6px;}
-.pagenum{position:absolute;right:56px;bottom:22px;font-family:'Inter',sans-serif;font-size:15px;font-weight:800;color:var(--ink3);}
-.src{position:absolute;left:56px;bottom:22px;font-size:13px;color:var(--ink3);}
-
-/* badges */
-.bd{display:inline-block;font-size:14px;font-weight:700;border-radius:5px;padding:2px 10px;white-space:nowrap;line-height:1.5;}
-.bd.ok{border:1.5px solid var(--accent);color:var(--accent);}
-.bd.gap{background:var(--accent);color:var(--sheet);border:1.5px solid var(--accent);}
-.bd.none{border:1.5px dashed var(--ink3);color:var(--ink3);}
-
-/* comparison table */
-.cmp{display:grid;grid-template-columns:150px 1fr 1fr 78px;border-top:2px solid var(--accent);}
-.cmp > div{padding:11px 12px;border-bottom:1px solid var(--bord);font-size:17px;line-height:1.5;}
-.cmp .h{background:var(--accentl);color:var(--accent);font-weight:700;font-size:15px;padding:8px 12px;}
-.cmp .k{font-weight:900;color:var(--accent);font-size:17px;}
-.cmp .j{text-align:center;}
-.cmp .doc{color:var(--ink);}
-.cmp .ours{background:var(--bg2);}
-.cmp small{display:block;font-size:13.5px;color:var(--ink3);margin-top:3px;line-height:1.45;}
-.cmp b{font-weight:900;}
-.cmp .big{font-family:'Inter',sans-serif;font-weight:900;color:var(--accent);font-size:22px;}
-
-/* two col (screening / plus) */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
-.box{border:1px solid var(--bord);border-radius:8px;padding:16px 20px;background:var(--bg2);}
-.box.ac{border:2px solid var(--accent);background:var(--sheet);}
-.bh{font-size:16px;font-weight:700;color:var(--ink3);letter-spacing:.1em;margin-bottom:8px;}
-.box.ac .bh{color:var(--accent);}
-.li{font-size:17px;line-height:1.45;padding:8px 0;border-top:1px solid var(--bord);display:flex;justify-content:space-between;gap:10px;}
-.li:first-of-type{border-top:none;}
-.li .s{font-size:13.5px;color:var(--ink3);white-space:nowrap;}
-.lay{font-size:15px;font-weight:900;color:var(--accent);margin:10px 0 2px;}
-.note{margin-top:14px;display:flex;gap:16px;align-items:flex-start;background:var(--accentl);border-radius:8px;padding:14px 20px;font-size:17px;line-height:1.55;}
-.note .nk{font-weight:900;color:var(--accent);white-space:nowrap;}
-.band{border:2px solid var(--accent);border-radius:8px;display:grid;grid-template-columns:1fr 1fr;margin-bottom:16px;}
-.band > div{padding:12px 18px;font-size:17px;line-height:1.5;}
-.band > div + div{border-left:2px solid var(--accent);background:var(--bg2);}
-.band .t{font-size:14px;font-weight:700;color:var(--accent);letter-spacing:.1em;display:block;margin-bottom:2px;}
-
-.def{border-top:2px solid var(--accent);}
-.dr{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid var(--bord);}
-.dk{padding:24px 12px;font-size:20px;font-weight:900;color:var(--accent);}
-.dv{padding:22px 12px;font-size:22px;line-height:1.75;}
-.dv.s2{font-size:21px;line-height:1.7;padding:18px 12px;}
-.sec{font-size:17px;font-weight:900;color:var(--accent);letter-spacing:.12em;margin-bottom:6px;}
-.cav{display:block;font-size:16px;line-height:1.6;color:var(--ink3);margin-top:8px;}
-.head + .def{border-top:none;}
-.old{margin-top:26px;border:1px dashed var(--ink3);border-radius:8px;padding:14px 20px;font-size:16px;line-height:1.6;color:var(--ink3);}
-.old .ok2{display:block;font-size:14px;font-weight:700;letter-spacing:.08em;}
-/* 1〜3章：縦中央・カード型 */
-.slide.v{display:flex;flex-direction:column;}
-.slide.v .head{margin-bottom:0;}
-.slide.v .body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;padding:24px 0 30px;}
-.slide.v .def{border-top:none;display:flex;flex-direction:column;gap:14px;}
-.slide.v .dr{grid-template-columns:190px 1fr;border-bottom:none;background:var(--bg2);border-left:6px solid var(--accent);border-radius:8px;align-items:center;}
-.slide.v .dk{padding:20px 20px;font-size:21px;}
-.slide.v .dv{padding:20px 26px 20px 4px;font-size:22px;line-height:1.7;}
-.slide.v .dv.s2{font-size:20px;line-height:1.65;padding:16px 26px 16px 4px;}
-.slide.v .dk{padding-top:16px;padding-bottom:16px;}
-.slide.v .dv b{color:var(--accent);}
-.slide.v .sec{font-size:18px;margin:0 0 10px;}
-.slide.v .sec + .def{margin-bottom:0;}
-.slide.v .cav{font-size:15.5px;}
-.stars{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;}
-.crit{border:2px solid var(--accent);border-radius:8px;padding:16px 22px;}
-.ch{font-size:17px;font-weight:900;color:var(--accent);letter-spacing:.1em;margin-bottom:8px;}
-.ci{font-size:18px;line-height:1.45;padding:7px 0;border-top:1px solid var(--bord);display:flex;gap:14px;}
-.ci b{font-family:'Inter',sans-serif;color:var(--accent);font-weight:900;}
-.exg{display:grid;grid-template-columns:1.25fr 1fr;gap:20px;align-items:start;}
-.crit.ex{padding:18px 22px;}
-.crit.ex .ch{font-size:17px;margin-bottom:8px;}
-.crit.ex .ci{font-size:17px;line-height:1.45;padding:11px 0;gap:12px;align-items:baseline;}
-.crit.ex .ci b{min-width:22px;}
-.crit.ex .ci span{flex:1;}
-.crit.ex .ci i{font-style:normal;font-size:12px;font-weight:700;color:var(--accent);background:var(--accentl);border-radius:4px;padding:2px 8px;white-space:nowrap;}
-.crit.ex.one{padding:16px 28px;}
-.crit.ex.one .ci{padding:9px 0;}
-.crit.ex .ci .cn{font-size:13px;margin-top:4px;}
-.ci .cn{display:block;font-size:14px;line-height:1.5;color:var(--ink3);margin-top:4px;}
-.tiers{display:flex;flex-direction:column;gap:10px;justify-content:center;}
-.tr{display:grid;grid-template-columns:110px 1fr;align-items:center;background:var(--bg2);border-left:6px solid var(--accent);border-radius:8px;padding:12px 16px;font-size:19px;}
-.bdg{display:flex;align-items:center;gap:14px;margin-top:6px;border:1px dashed var(--bord);border-radius:8px;padding:12px 16px;font-size:16px;line-height:1.5;}
-.psum{background:var(--bg2);border-left:6px solid var(--accent);border-radius:8px;padding:20px 26px;margin-bottom:28px;}
-.pnum{display:flex;align-items:baseline;gap:8px;margin-bottom:12px;font-size:16px;color:var(--ink3);}
-.pnum b{font-family:'Inter',sans-serif;font-size:40px;font-weight:900;color:var(--ink);line-height:1;}
-.pnum b.ok{color:var(--accent);}
-.pnum i{font-style:normal;font-size:22px;margin:0 6px;}
-.pli{list-style:none;margin:0;padding:0;}
-.pli li{font-size:16px;line-height:1.55;padding:6px 0;border-top:1px solid var(--bord);}
+.slide{position:relative;width:1200px;height:900px;background:var(--sheet);padding:52px 64px 76px;box-shadow:0 2px 18px var(--shadow);overflow:hidden;transform-origin:top left;display:flex;flex-direction:column;}
+.head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:4px solid var(--accent);padding-bottom:16px;flex:none;}
+.label{font-size:20px;font-weight:700;color:var(--accent);letter-spacing:.2em;}
+h2{font-size:48px;font-weight:900;line-height:1.25;margin-top:6px;}
+.legend{display:flex;gap:10px;padding-bottom:8px;white-space:nowrap;}
+.bd{display:inline-block;font-size:18px;font-weight:700;border-radius:6px;padding:4px 14px;white-space:nowrap;line-height:1.5;}
+.bd.none{border:2px dashed var(--ink3);color:var(--ink3);}
+.pagenum{position:absolute;right:64px;bottom:30px;font-family:'Inter',sans-serif;font-size:16px;font-weight:800;color:var(--ink3);}
+.body{flex:1;min-height:0;display:flex;flex-direction:column;padding-top:28px;}
+/* 行カード */
+.def{display:flex;flex-direction:column;gap:16px;flex:1;min-height:0;}
+.dr{flex:1;display:grid;grid-template-columns:225px 1fr;align-items:center;background:var(--bg2);border-left:6px solid var(--accent);border-radius:8px;}
+.dk{padding:0 16px 0 22px;font-size:22px;font-weight:900;color:var(--accent);line-height:1.4;white-space:nowrap;letter-spacing:0;}
+.dv{padding:14px 24px 14px 4px;font-size:23px;line-height:1.7;}
+.dv.s2{font-size:21.5px;line-height:1.65;}
+.dv b{color:var(--accent);font-weight:900;}
+.cav{display:block;font-size:17px;line-height:1.7;color:var(--ink3);margin-top:8px;}
+.sec{font-size:22px;font-weight:900;color:var(--accent);letter-spacing:.12em;margin:0 0 12px;flex:none;}
+.sec.n2{margin-top:22px;}
+.s3 .body{padding-bottom:28px;}
+.s3 .def{gap:12px;}
+.s3 .sec.n2{margin-top:16px;}
+.grp{display:flex;flex-direction:column;min-height:0;}
+.grp.g3{flex:3;}.grp.g1{flex:1.35;}
+/* 除外条件 */
+.crit{border:2px solid var(--accent);border-radius:8px;padding:8px 32px;display:flex;flex-direction:column;flex:1;min-height:0;}
+.ch{font-size:22px;font-weight:900;color:var(--accent);letter-spacing:.08em;padding:12px 0;flex:none;}
+.ci{flex:1;font-size:22px;line-height:1.5;border-top:1px solid var(--bord);display:flex;gap:18px;align-items:center;}
+.ci b{font-family:'Inter',sans-serif;color:var(--accent);font-weight:900;font-size:24px;min-width:24px;}
+.ci span{flex:1;}
+.ci i{font-style:normal;font-size:16px;font-weight:700;color:var(--accent);background:var(--accentl);border-radius:5px;padding:3px 12px;white-space:nowrap;}
+.cn{display:block;font-size:17px;line-height:1.55;color:var(--ink3);margin-top:3px;font-weight:400;}
+/* 星 */
+.stars{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;flex:1;min-height:0;}
+.stars .crit{padding:12px 32px;}
+.stars .ci{font-size:23px;line-height:1.55;padding:6px 0;}
+.stars .ci .cn{font-size:18px;white-space:nowrap;}
+.nw{white-space:nowrap;}
+.tiers{display:flex;flex-direction:column;gap:16px;min-height:0;}
+.tr{flex:1;display:grid;grid-template-columns:150px 1fr;align-items:center;background:var(--bg2);border-left:6px solid var(--accent);border-radius:8px;padding:0 22px;font-size:24px;font-weight:700;}
+.ts{font-size:34px;color:var(--accent);letter-spacing:2px;line-height:1;}
+.ts span{color:var(--bord);}
+.bdg{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:12px;border:2px dashed var(--ink3);border-radius:8px;padding:0 22px;font-size:20px;line-height:1.6;}
+.bdgi{font-size:17px;font-weight:800;color:#fff;background:var(--accent);border-radius:999px;padding:5px 16px;white-space:nowrap;}
+/* ドクター */
+.psum{background:var(--bg2);border-left:6px solid var(--accent);border-radius:8px;padding:10px 28px;flex:1.5;display:flex;min-height:0;}
+.pli{list-style:none;display:flex;flex-direction:column;justify-content:space-between;width:100%;}
+.pli li{flex:1;display:flex;align-items:center;font-size:21px;line-height:1.55;border-top:1px solid var(--bord);}
 .pli li:first-child{border-top:none;}
-.pli b{color:var(--accent);font-weight:900;}
-.sb{display:inline-block;background:var(--accent);color:#fff;font-size:15px;letter-spacing:2px;border-radius:999px;padding:3px 12px;margin-right:14px;vertical-align:2px;font-weight:700;}
-.sb i{font-style:normal;opacity:.45;}
-.dl{width:100%;border-collapse:collapse;font-size:19px;}
-.dl th{text-align:left;font-size:15px;font-weight:800;color:var(--accent);letter-spacing:.08em;padding:12px 18px;border-bottom:2px solid var(--accent);}
-.dl td{padding:16px 18px;border-bottom:1px solid var(--bord);}
+.pli li div{display:block;}
+.pli b{color:var(--accent);font-weight:900;display:block;font-size:21px;}
+.sb{display:inline-block;background:var(--accent);color:#fff;font-size:20px;letter-spacing:2px;border-radius:999px;padding:3px 16px;margin-right:16px;vertical-align:2px;font-weight:700;}
+.tw{flex:1;display:flex;flex-direction:column;justify-content:flex-end;margin-top:28px;}
+.dl{width:100%;border-collapse:collapse;font-size:24px;}
+.dl th{text-align:left;font-size:18px;font-weight:800;color:var(--accent);letter-spacing:.08em;padding:12px 18px;border-bottom:2px solid var(--accent);}
+.dl td{padding:20px 18px;border-bottom:1px solid var(--bord);}
 .dl td:first-child{font-weight:800;}
 .dl a{color:var(--accent);text-decoration:underline;}
-.dl tr.empty td{color:var(--ink3);text-align:center;font-weight:400;padding:40px 18px;}
-.bdgi{flex:none;font-size:13px;font-weight:800;color:#fff;background:var(--accent);border-radius:999px;padding:5px 12px;white-space:nowrap;}
-.ts{font-size:26px;color:var(--accent);letter-spacing:2px;}
-.ts span{color:var(--bord);}
-.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.dc{border:1px solid var(--bord);border-radius:8px;padding:10px 16px;background:var(--sheet);}
-.dn{font-size:20px;font-weight:900;}
-.dcl{font-size:14px;color:var(--ink3);margin-top:2px;}
-.dst{font-size:18px;color:var(--bord);margin-top:3px;letter-spacing:2px;}
-.dst span{font-size:13px;color:var(--ink3);letter-spacing:0;margin-left:8px;vertical-align:2px;}
-.chk{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.chk span{font-size:12.5px;border:1px dashed var(--ink3);color:var(--ink3);border-radius:4px;padding:1px 7px;}
-.chk span.y{border:1.5px solid var(--accent);color:var(--accent);font-weight:700;}
-.slide.v.pk .body{padding:18px 0 34px;}
 @page { size: 1200px 900px; margin: 0; }
 @media print {
   html, body { margin: 0; padding: 0; background: #fff; }
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   .deck{padding:0;}
   .fit{width:auto !important;height:auto !important;margin:0 !important;}
-  .slide {
-    width: 1200px; height: 900px; margin: 0; padding: 48px 56px;
-    box-shadow: none; overflow: hidden; transform:none !important;
-    page-break-after: always; break-after: page;
-    page-break-inside: avoid; break-inside: avoid;
-  }
-  .fit:last-child .slide { page-break-after: avoid; break-after: avoid; }
+  .slide { width:1200px; height:900px; margin:0; padding:52px 64px 76px; box-shadow:none; overflow:hidden; transform:none !important; page-break-after:always; break-after:page; page-break-inside:avoid; break-inside:avoid; }
+  .fit:last-child .slide { page-break-after:avoid; break-after:avoid; }
 }
 </style>
 </head>
@@ -167,13 +85,13 @@ h2{font-size:38px;font-weight:900;line-height:1.25;margin-top:4px;}
 <div class="deck">
 
 <!-- 1章 -->
-<div class="fit"><section class="slide v">
+<div class="fit"><section class="slide">
   <div class="head"><div><div class="label">1 ｜ 何をやるか</div><h2>サービスの方向性</h2></div></div>
   <div class="body">
   <div class="def">
     <div class="dr"><div class="dk">誰に</div><div class="dv"><b class="hi">一定の情報収集力があり、安価だけで外科施術を選ばない人</b></div></div>
     <div class="dr"><div class="dk">何をやるか</div><div class="dv">美容整形（外科）を検討するユーザーに対して、<b class="hi">医師単位で比較検討し、信頼に足るドクター選びができる認定型メディア</b>を作る。</div></div>
-    <div class="dr"><div class="dk">立ち位置</div><div class="dv">既存の美容医療ポータルサイトは、すべてクリニックからの掲載料や成果報酬で成り立っており、構造上<b class="hi">「基準を満たさない医院を落とす」ことができない</b>。ここが空白であり、本事業の立ち位置。</div></div>
+    <div class="dr"><div class="dk">立ち位置</div><div class="dv">既存の美容医療ポータルサイトは、すべてクリニックからの掲載料や成果報酬で成り立っており、構造上<b class="hi"><span class="nw">「基準を満たさない医院を落とす」</span>ことができない</b>。ここが空白であり、本事業の立ち位置。</div></div>
     <div class="dr"><div class="dk">評価対象</div><div class="dv">比喩としてはミシュランに近いが、飲食と違い施術の覆面調査は不可であるため、評価対象を「主観による施術の結果」には置かない。その代わりに、<b class="hi">「客観的な技術力の高さや情報開示の透明性、医療事故歴の有無」</b>に評価対象を置く。</div></div>
   </div>
   </div>
@@ -181,14 +99,14 @@ h2{font-size:38px;font-weight:900;line-height:1.25;margin-top:4px;}
 </section></div>
 
 <!-- 2章 行動 -->
-<div class="fit"><section class="slide v">
+<div class="fit"><section class="slide">
   <div class="head"><div><div class="label">2 ｜ ユーザーの実態</div><h2>行動</h2></div></div>
   <div class="body">
   <div class="def">
-    <div class="dr"><div class="dk">探す場所</div><div class="dv s2">Google検索・Instagram・X・TikTok。用途は主に、Google＝施術理解、症例、口コミ検索、Instagram＝症例検索、X＝口コミ検索、Tik＝施術理解</div></div>
+    <div class="dr"><div class="dk">探す場所</div><div class="dv s2">Google検索・Instagram・X・TikTok。用途は主に、Google＝施術理解、症例、<span class="nw">口コミ検索</span>、Instagram＝症例検索、X＝<span class="nw">口コミ検索</span>、Tik＝施術理解</div></div>
     <div class="dr"><div class="dk">症例→口コミ</div><div class="dv s2">外科経験者（一般）7名中6名が症例写真・BAから好みにできそうな医院（医師）を探し、その後口コミで信用できるかを探す</div></div>
     <div class="dr"><div class="dk">見る単位</div><div class="dv s2">一括ではなく、個別の医院アカウント・サイトを個々に見ている</div></div>
-    <div class="dr"><div class="dk">ステマ対策</div><div class="dv s2">口コミもステマの可能性があるため、自分の判断や経験者への直接ヒアリングで精査。「カネ・PRの匂い」がするものは信頼ゼロ</div></div>
+    <div class="dr"><div class="dk">ステマ対策</div><div class="dv s2">口コミもステマの可能性があるため、自分の判断や経験者への直接ヒアリングで<span class="nw">精査</span>。「カネ・PRの匂い」がするものは信頼ゼロ</div></div>
     <div class="dr"><div class="dk">カウンセリング</div><div class="dv s2">気になったところにカウンセリング相談</div></div>
   </div>
   </div>
@@ -196,28 +114,28 @@ h2{font-size:38px;font-weight:900;line-height:1.25;margin-top:4px;}
 </section></div>
 
 <!-- 2章 ペイン・セグメント -->
-<div class="fit"><section class="slide v">
+<div class="fit"><section class="slide s3">
   <div class="head"><div><div class="label">2 ｜ ユーザーの実態</div><h2>ペインの本質・セグメント仮説</h2></div></div>
   <div class="body">
-  <div class="sec">ペインの本質</div>
+  <div class="grp g3"><div class="sec">ペインの本質</div>
   <div class="def">
     <div class="dr"><div class="dk">ペイン</div><div class="dv s2">ペインの本質は、「比較できない」ではなく<b>『信じられない／検証コストが高い』</b></div></div>
     <div class="dr"><div class="dk">症例の探索軸</div><div class="dv s2">症例の探索軸は主観（自分に似た顔か・好みか）で、構造化できない。構造化可能な指標は、価格・施術内容・ダウンタイム・口コミ（対応の良し悪し・高額なアップセルの有無・医療事故歴の有無）。</div></div>
-    <div class="dr"><div class="dk">判断材料</div><div class="dv s2">判断材料は、価格、症例、口コミ。解くべきは、情報の整理ではなく、<b>情報の検証</b>。</div></div>
+    <div class="dr"><div class="dk">判断材料</div><div class="dv s2">判断材料は、価格、症例、口コミ。解くべきは、情報の整理ではなく、<b class="nw">情報の検証</b>。</div></div>
   </div>
-  <div class="sec" style="margin-top:30px">セグメント仮説</div>
+  </div><div class="grp g1"><div class="sec n2">セグメント仮説</div>
   <div class="def">
-    <div class="dr"><div class="dk">仮説</div><div class="dv s2">リテラシー中以上の層は既存ポータルをあまり使っていない（価格優先の層が中心）。<span class="cav">※ただし、N13をリテラシー層別に切ると各層4〜5名になり、この中核前提は実質N=5の観察。<br>確定には、定量スクリーニング（N300〜500、数十万円規模）での検証は必要。</span></div></div>
-  </div>
+    <div class="dr"><div class="dk">仮説</div><div class="dv s2">リテラシー中以上の層は既存ポータルをあまり使っていない<span class="nw">（価格優先の層が中心）。</span><span class="cav">※ただし、N13をリテラシー層別に切ると各層4〜5名になり、この中核前提は実質N=5の観察。<br>確定には、定量スクリーニング（N300〜500、数十万円規模）での検証は必要。</span></div></div>
+  </div></div>
   </div>
   <div class="pagenum">03</div>
 </section></div>
 
 <!-- 追加 除外条件 -->
-<div class="fit"><section class="slide v">
+<div class="fit"><section class="slide">
   <div class="head"><div><div class="label">ドクター選定</div><h2>除外条件</h2></div></div>
   <div class="body">
-    <div class="crit ex one"><div class="ch">すべてを満たさないドクターは掲載しない</div>
+    <div class="crit"><div class="ch">すべてを満たさないドクターは掲載しない</div>
         <div class="ci"><b>1</b><span>現存する行政処分（免許取消・医業停止）がない</span><i>医道審議会</i></div>
         <div class="ci"><b>2</b><span>死亡や健康被害を訴える書き込みがゼロ<small class="cn">名指しの施術被害も含む（例：〇〇先生→脱脂で目が陥没）／未検証でも、可能性がゼロでなければ除外</small></span><i>クロール</i></div>
         <div class="ci"><b>3</b><span>景表法（ステマ規制）に基づく措置命令の履歴がない</span><i>消費者庁</i></div>
@@ -232,20 +150,20 @@ h2{font-size:38px;font-weight:900;line-height:1.25;margin-top:4px;}
 </section></div>
 
 <!-- 追加 ピックアップ例 -->
-<div class="fit"><section class="slide v pk">
+<div class="fit"><section class="slide">
   <div class="head"><div><div class="label">ピックアップドクター例</div><h2>星評価の分け方</h2></div><div class="legend"><span class="bd none">提案案・社内で議論</span></div></div>
   <div class="body">
     <div class="stars">
       <div class="crit"><div class="ch">星の条件（3つ）</div>
-        <div class="ci"><b>1</b>ドクターの対応やサービス、無理なアップセルに関する悪い口コミがゼロ</div>
+        <div class="ci"><b>1</b><span><span class="nw">ドクターの対応やサービス、</span><br><span class="nw">無理なアップセルに関する悪い口コミがゼロ</span></span></div>
         <div class="ci"><b>2</b>該当施術の動画症例が、全体の3割以上</div>
-        <div class="ci"><b>3</b><span>該当施術の症例が片側だけでなく、<br>部位全体を写しているものが8割以上<small class="cn">例：目元＝両目の症例／顔＝輪郭全体の症例<br>　　鼻＝正面だけでなく複数角度からの症例</small></span></div>
+        <div class="ci"><b>3</b><span><span class="nw">該当施術の症例が片側だけでなく、</span><br><span class="nw">部位全体を写しているものが8割以上</span><small class="cn">例：目元＝両目の症例／顔＝輪郭全体の症例</small><small class="cn" style="margin-top:0">鼻＝正面だけでなく複数角度からの症例</small></span></div>
       </div>
       <div class="tiers">
         <div class="tr"><div class="ts">★★★</div><div>3つを満たす</div></div>
         <div class="tr"><div class="ts">★★<span>☆</span></div><div>2つを満たす</div></div>
         <div class="tr"><div class="ts">★<span>☆☆</span></div><div>どれか1つのみ満たす</div></div>
-        <div class="bdg"><span class="bdgi">形成外科専門医</span><div>形成外科専門医のドクターは、<br>形成外科専門医のバッジを付ける</div></div>
+        <div class="bdg"><span class="bdgi">形成外科専門医</span><div><span class="nw">形成外科専門医のドクターは、</span><br><span class="nw">形成外科専門医のバッジを付ける</span></div></div>
       </div>
     </div>
   </div>
@@ -253,24 +171,24 @@ h2{font-size:38px;font-weight:900;line-height:1.25;margin-top:4px;}
 </section></div>
 
 <!-- 追加 掲載ドクター -->
-<div class="fit"><section class="slide v">
+<div class="fit"><section class="slide">
   <div class="head"><div><div class="label">ドクター選定</div><h2>ピックアップドクター（二重埋没）</h2></div></div>
   <div class="body">
     <div class="psum">
       <ul class="pli">
-        <li><b>公的データで照合</b>　行政処分（厚労省）と景表法の措置命令（消費者庁・東京都）がないことを確認</li>
-        <li><b>医師本人への口コミを全件確認</b>　トリビュー・Google・口コミ広場などを読み、担当医欄や本文の名前で本人の口コミかを確かめた</li>
-        <li><b>割合が1割未満でも除外</b>　名指しの健康被害、仕上がりや態度への悪評が続く医師は、信頼を損ねると判断して外した</li>
-        <li><b>実際の仕上がりで判断</b>　上記を踏まえつつ、左右差がなく技術力が高いこと、再現性の高さ、そして症例の豊富さを判断基準とし、<br>当サービスにピックアップすべきと考えて推薦</li>
+        <li><div><b>公的データで照合</b>行政処分（厚労省）と景表法の措置命令（消費者庁・東京都）がないことを確認</div></li>
+        <li><div><b>医師本人への口コミを全件確認</b>トリビュー・Google・口コミ広場などを読み、担当医欄や本文の名前で本人の口コミかを確かめた</div></li>
+        <li><div><b>割合が1割未満でも除外</b>名指しの健康被害、仕上がりや態度への悪評が続く医師は、信頼を損ねると判断して外した</div></li>
+        <li><div><b>実際の仕上がりで判断</b>上記を踏まえつつ、左右差がなく技術力が高いこと、再現性の高さ、そして症例の豊富さを判断基準とし、当サービスにピックアップすべきと考えて推薦</div></li>
       </ul>
     </div>
-    <table class="dl">
+    <div class="tw"><table class="dl">
       <thead><tr><th>ドクター名</th><th>所属クリニック</th><th>Instagram</th></tr></thead>
       <tbody>
         <tr><td><span class="sb">★★</span>夏目 隆太郎</td><td>新宿麗美容皮膚科</td><td><a href="https://www.instagram.com/dr.natsume/" target="_blank" rel="noopener">@dr.natsume</a></td></tr>
         <tr><td><span class="sb">★★</span>和田 尚人</td><td>東京イセアクリニック</td><td><a href="https://www.instagram.com/wada_isea/" target="_blank" rel="noopener">@wada_isea</a></td></tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
   <div class="pagenum">06</div>
 </section></div>
